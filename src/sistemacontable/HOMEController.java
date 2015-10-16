@@ -35,6 +35,8 @@ public class HOMEController extends StackPane implements Initializable {
     @FXML
     AnchorPane balgeneral;
     @FXML
+    AnchorPane ecomprobacion;
+    @FXML
     AnchorPane eResultado;
     @FXML
     AnchorPane eCapital;
@@ -119,6 +121,9 @@ public class HOMEController extends StackPane implements Initializable {
                     else if(str.contains("Estado de Capital")){
                            lanzarEscena("Estado de Capital",eCapital, "vistas/EstadoCapital.fxml"); 
                     }
+                    else if(str.contains("Balance de Comprobacion")){
+                           lanzarEscena("Balance de Comprobacion",ecomprobacion, "vistas/BalanceComprobacion.fxml"); 
+                    }
                 }
             }
         });
@@ -136,10 +141,10 @@ public class HOMEController extends StackPane implements Initializable {
         makeBranch("Consultar Inventario", Reportes);
         
         Balances = makeBranch("Reportes", raiz);
-        makeBranch("Estado de Resultado", Balances);
-        makeBranch("Estado de Comprobacion", Balances);
-        makeBranch("Balance General",Balances);
+        makeBranch("Balance de Comprobacion", Balances);
+        makeBranch("Estado de Resultado", Balances);        
         makeBranch("Estado de Capital",Balances);
+        makeBranch("Balance General",Balances);
         makeBranch("Hoja de trabajo",Balances);
         
         ECatalogos = makeBranch("Inventario", raiz);
