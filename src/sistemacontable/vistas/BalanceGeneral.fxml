@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="776.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sistemacontable.BalanceGeneralController">
+   <children>
+      <Label layoutX="325.0" layoutY="34.0" text="L.A. Industrias">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="335.0" layoutY="64.0" text="Balance General">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="375.0" layoutY="91.0" text="FECHA" />
+      <TableView layoutX="40.0" layoutY="123.0">
+        <columns>
+            <TableColumn prefWidth="336.0" text="Activo">
+               <columns>
+                <TableColumn prefWidth="185.0" text="Nombre" />
+                  <TableColumn prefWidth="78.0" text="Debe" />
+                  <TableColumn prefWidth="76.0" text="Haber" />
+               </columns>
+            </TableColumn>
+            <TableColumn prefWidth="342.0" text="Participaciones">
+               <columns>
+                  <TableColumn prefWidth="185.0" text="Nombre" />
+                  <TableColumn prefWidth="78.0" text="Debe" />
+                  <TableColumn prefWidth="76.0" text="Haber" />
+               </columns>
+            </TableColumn>
+        </columns>
+      </TableView>
+      <Label layoutX="59.0" layoutY="551.0" text="Total Activos:" />
+      <TextField layoutX="175.0" layoutY="545.0" prefHeight="25.0" prefWidth="124.0" />
+      <Label layoutX="389.0" layoutY="551.0" text="Total Participaciones:" />
+      <TextField layoutX="546.0" layoutY="545.0" prefHeight="25.0" prefWidth="124.0" />
+   </children>
+</AnchorPane>

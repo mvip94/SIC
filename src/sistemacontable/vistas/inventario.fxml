@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.0" prefWidth="609.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="223.0" layoutY="57.0" text="INVENTARIO">
+         <font>
+            <Font name="Arial Bold" size="25.0" />
+         </font>
+      </Label>
+      <SplitPane dividerPositions="0.33527131782945735" focusTraversable="true" layoutX="41.0" layoutY="127.0" prefHeight="400.0" prefWidth="520.0">
+         <items>
+            <AnchorPane maxWidth="170.0" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="90.0">
+               <children>
+                  <Label layoutX="29.0" layoutY="81.0" text="Codigo:" />
+                  <TextField layoutX="30.0" layoutY="115.0" prefWidth="115.0" />
+                  <Label layoutX="30.0" layoutY="189.0" text="Nombre:" />
+                  <TextField layoutX="30.0" layoutY="220.0" prefWidth="115.0" />
+                  <Button layoutX="60.0" layoutY="290.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Buscar" />
+                  <Text layoutX="25.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite nombre o código del producto a buscar" textAlignment="CENTER" wrappingWidth="123.873046875" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="396.0000999999975" prefWidth="294.9999000000025">
+               <children>
+                  <TableView layoutX="1.0" layoutY="1.0" prefHeight="398.0" prefWidth="340.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columns>
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="67.0" text="Código" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="139.0" text="Nombre del producto" />
+                        <TableColumn prefWidth="72.0" text="Cantidad" />
+                        <TableColumn prefWidth="70.0" text="Precio" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
