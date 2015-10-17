@@ -14,10 +14,15 @@ public class IA11003 extends javax.swing.JFrame {
     /**
      * Creates new form IA11003
      */
+    public ProductoTableModel productoTModel=new ProductoTableModel();
     public IA11003() {
         initComponents();
     }
-
+    //inicio de la programacion del swing
+    
+    
+    
+    //programacion de jorge luis iraheta alvarenga
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,17 +76,7 @@ public class IA11003 extends javax.swing.JFrame {
         jTextField2.setText("jTextField2");
         jTextField2.setEnabled(false);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        jTable1.setModel(productoTModel);
         jTable1.setEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
