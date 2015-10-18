@@ -7,6 +7,7 @@ package lab06swing;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -133,6 +134,11 @@ public class IA11003 extends javax.swing.JFrame {
 
         botton.setText("Buscar");
         botton.setEnabled(false);
+        botton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottonActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Codigo");
 
@@ -343,6 +349,26 @@ public class IA11003 extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void bottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottonActionPerformed
+        // TODO add your handling code here:
+        productoTModel.Productos.clear();
+        try {
+            PreparedStatement statement = null;
+            String codigo = jTextField1.getText().toString();
+            String nombre = jTextField2.getText().toString();
+            String sentenciaSql = "Select * from producto";
+            if (!codigo.isEmpty()) {
+                if (!nombre.isEmpty()) {
+                    sentenciaSql +="WHERE idproducto ILIKE ? OR nombreproducto ILIKE ?";
+                    statement=this.conexion.prepareStatement(sentenciaSql);
+                    
+                }
+                
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_bottonActionPerformed
 
     /**
      * @param args the command line arguments
