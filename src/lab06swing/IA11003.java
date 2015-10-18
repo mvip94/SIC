@@ -5,6 +5,18 @@
  */
 package lab06swing;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableColumnModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
+
 /**
  *
  * @author jorge
@@ -14,14 +26,70 @@ public class IA11003 extends javax.swing.JFrame {
     /**
      * Creates new form IA11003
      */
-    public ProductoTableModel productoTModel=new ProductoTableModel();
+    public ProductoTableModel productoTModel = new ProductoTableModel();
+    private Connection conexion;
+
     public IA11003() {
         initComponents();
+        inicializarColumnas();
+        conectar();
+        consultaInicial();
     }
+
     //inicio de la programacion del swing
-    
-    
-    
+    private void inicializarColumnas() {
+        TableColumnModel tColumnModel = new DefaultTableColumnModel();
+        for (int i = 0; i < 4; i++) {
+            TableColumn col = new TableColumn(i);
+
+            switch (i) {
+                case 0:
+                    col.setHeaderValue("Codigo");
+                    break;
+                case 1:
+                    col.setHeaderValue("Nombre");
+                    break;
+                case 2:
+                    col.setHeaderValue("Existencia");
+                    break;
+                case 3:
+                    col.setHeaderValue("Precio");
+                    break;
+            }
+            tColumnModel.addColumn(col);
+        }
+        jTable1.setColumnModel(tColumnModel);
+    }
+
+    private void conectar() {
+        try {
+            conexion = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "ia11003", "IA11003");
+        } catch (SQLException ex) {
+            Logger.getLogger(IA11003.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    private void consultaInicial() {
+        try {
+            String sentenciaSql = "SELECT * FROM producto";
+            Statement statement = this.conexion.createStatement();
+            ResultSet resultado = statement.executeQuery(sentenciaSql);
+            while (resultado.next()) {
+                Producto producto = new Producto();
+                producto.codigo = resultado.getString("idproducto");
+                producto.nombre = resultado.getString("nombreproducto");
+                producto.cantidadExistencia = resultado.getDouble("precproducto");
+                producto.precioUnitario = resultado.getDouble("existproducto");
+                this.productoTModel.Productos.add(producto);
+            }
+            jTable1.repaint();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error al recuperar los productos de la base de datos");
+            ex.printStackTrace();
+        }
+    }
+
     //programacion de jorge luis iraheta alvarenga
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,10 +138,8 @@ public class IA11003 extends javax.swing.JFrame {
 
         jLabel3.setText("Nombre");
 
-        jTextField1.setText("jTextField1");
         jTextField1.setEnabled(false);
 
-        jTextField2.setText("jTextField2");
         jTextField2.setEnabled(false);
 
         jTable1.setModel(productoTModel);
@@ -110,7 +176,6 @@ public class IA11003 extends javax.swing.JFrame {
         });
 
         jButton1.setText("Exit");
-        jButton1.setEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -155,26 +220,6 @@ public class IA11003 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(71, 71, 71))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
@@ -182,10 +227,6 @@ public class IA11003 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(234, 234, 234)
-                        .addComponent(jLabel4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel7)
@@ -206,7 +247,31 @@ public class IA11003 extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(83, 83, 83))))))
+                                .addGap(83, 83, 83))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(234, 234, 234)
+                                .addComponent(jLabel4))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(213, 213, 213)
+                        .addComponent(botton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,11 +289,10 @@ public class IA11003 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(jLabel4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -251,7 +315,7 @@ public class IA11003 extends javax.swing.JFrame {
                                     .addComponent(jLabel8)
                                     .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(17, 17, 17)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)))
@@ -265,19 +329,19 @@ public class IA11003 extends javax.swing.JFrame {
         // TODO add your handling code here:
         botton.setEnabled(true);
         jTextField1.setEnabled(true);
-       jTextField2.setEnabled(true);
+        jTextField2.setEnabled(true);
         jTextField3.setEnabled(true);
         jTextField4.setEnabled(true);
         jFormattedTextField1.setEnabled(true);
         jFormattedTextField2.setEnabled(true);
         jButton3.setEnabled(true);
         jButton4.setEnabled(true);
-       jTable1.setEnabled(true);
+        jTable1.setEnabled(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
