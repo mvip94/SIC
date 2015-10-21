@@ -13,10 +13,10 @@
       <TextField layoutX="108.0" layoutY="75.0" prefHeight="25.0" prefWidth="236.0" />
       <Label layoutX="652.0" layoutY="80.0" text="Código:" />
       <TextField layoutX="725.0" layoutY="75.0" prefHeight="25.0" prefWidth="87.0" />
-      <TableView layoutX="34.0" layoutY="124.0" prefHeight="294.0" prefWidth="810.0">
+      <TableView fx:id="tabla" layoutX="34.0" layoutY="124.0" prefHeight="294.0" prefWidth="810.0">
         <columns>
             <TableColumn prefWidth="99.0" text="Fecha" />
-          <TableColumn fx:id="tabla" prefWidth="187.0" text="Entrada">
+          <TableColumn  prefWidth="187.0" text="Entrada">
                <columns>
                   <TableColumn prefWidth="77.0" text="Cantidad" />
                   <TableColumn prefWidth="73.0" text="C/Unitario" />

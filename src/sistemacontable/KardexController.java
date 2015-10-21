@@ -23,7 +23,7 @@ public class KardexController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        tabla.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+      tabla.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }    
     
 }
