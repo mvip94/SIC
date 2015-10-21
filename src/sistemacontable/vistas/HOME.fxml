@@ -29,7 +29,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" onAction="#btnMenuLogin" text="Usuarios">
                   <items>
-                    <MenuItem fx:id="menuLogin" mnemonicParsing="false" onAction="#btnMenuLogin" text="Iniciar Sesión" />
+                    <MenuItem mnemonicParsing="false" text="Información Usuario" />
                         <MenuItem mnemonicParsing="false" text="Cerrar Sesión" />
                         <MenuItem mnemonicParsing="false" text="Administrar Usuarios" />
                   </items>

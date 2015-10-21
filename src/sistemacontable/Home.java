@@ -20,9 +20,9 @@ public class Home extends Application{
     public void start(Stage primaryStage) throws Exception {
        
        // FXMLLoader loader = new FXMLLoader(getClass().getResource("HOME.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("vistas/HOME.fxml"));
-        Scene escena = new Scene(root, 800, 600);
-        primaryStage.setTitle("Sistema Contable");  
+        Parent root = FXMLLoader.load(getClass().getResource("vistas/login.fxml"));
+        Scene escena = new Scene(root);
+        primaryStage.setTitle("Sistema Contable - Iniciar Sesión");  
         
         primaryStage.setScene(escena);
         primaryStage.show();        

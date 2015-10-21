@@ -6,13 +6,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
@@ -28,8 +26,8 @@ public class HOMEController extends StackPane implements Initializable {
      * @param url
      * @param rb
      */
-    @FXML
-    AnchorPane login;
+   @FXML
+    AnchorPane kardex;
     @FXML
     AnchorPane cuentas;
     @FXML
@@ -44,8 +42,8 @@ public class HOMEController extends StackPane implements Initializable {
     AnchorPane inventario;
     @FXML
     TreeView tree;
-    @FXML
-    MenuItem menuLogin;    
+  /*  @FXML
+    MenuItem menuLogin;   */ 
 
     
     @Override
@@ -55,7 +53,7 @@ public class HOMEController extends StackPane implements Initializable {
     }    
   
     public void btnMenuLogin(){
-        menuLogin.setOnAction(new EventHandler<ActionEvent>() {
+      /*  menuLogin.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
@@ -69,7 +67,7 @@ public class HOMEController extends StackPane implements Initializable {
                     Logger.getLogger(HOMEController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        });
+        });*/
     }
    
     private TreeItem<String> makeBranch(String title, TreeItem<String> parent) {
@@ -124,6 +122,9 @@ public class HOMEController extends StackPane implements Initializable {
                     else if(str.contains("Balance de Comprobacion")){
                            lanzarEscena("Balance de Comprobacion",ecomprobacion, "vistas/BalanceComprobacion.fxml"); 
                     }
+                    else if(str.contains("Kardex")){
+                           lanzarEscena("Kardex",kardex,"vistas/Kardex.fxml"); 
+                    }
                 }
             }
         });
@@ -131,14 +132,21 @@ public class HOMEController extends StackPane implements Initializable {
     
     private void crearArbol(){
     //Arbol
-        TreeItem<String> raiz,Balances, Reportes, ECatalogos;
+        TreeItem<String> raiz,Balances,Cuentas,Inventario,eCuentas;
         
         raiz = new TreeItem<>(); //Nueva raiz, contendrá las ramas balance, catalogos, etc
         raiz.setExpanded(true);
        
-        Reportes = makeBranch("Consultar catalogos", raiz);
-        makeBranch("Consultar Catalogo de cuentas", Reportes);
-        makeBranch("Consultar Inventario", Reportes);
+        Cuentas = makeBranch("Cuentas", raiz);
+        eCuentas = makeBranch("Editar Sub-cuentas", Cuentas);
+        makeBranch("  Agregar Sub-cuenta", eCuentas);
+        makeBranch("  Eliminar Sub-cuenta", eCuentas);
+        makeBranch("Consultar Catalogo de cuentas", Cuentas);
+               
+        Inventario = makeBranch("Inventario", raiz);
+        makeBranch("Consultar Inventario", Inventario);
+        makeBranch("Compras", Inventario);
+        makeBranch("Kardex", Inventario);
         
         Balances = makeBranch("Reportes", raiz);
         makeBranch("Balance de Comprobacion", Balances);
@@ -146,14 +154,7 @@ public class HOMEController extends StackPane implements Initializable {
         makeBranch("Estado de Capital",Balances);
         makeBranch("Balance General",Balances);
         makeBranch("Hoja de trabajo",Balances);
-        
-        ECatalogos = makeBranch("Inventario", raiz);
-        makeBranch("Compras", ECatalogos);
-        makeBranch("Kardex", ECatalogos);
-        
-        
-        
-        
+             
         tree.setRoot(raiz); //tree es el TreeView del fxml
         tree.setShowRoot(false); //raiz no se ve porque solo es el contenedor
     }
