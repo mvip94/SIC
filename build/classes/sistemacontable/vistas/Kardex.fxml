@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="477.0" prefWidth="876.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemacontable.KardexController">
+   <children>
+      <Label layoutX="34.0" layoutY="80.0" text="Artículo:" />
+      <TextField layoutX="108.0" layoutY="75.0" prefHeight="25.0" prefWidth="236.0" />
+      <Label layoutX="652.0" layoutY="80.0" text="Código:" />
+      <TextField layoutX="725.0" layoutY="75.0" prefHeight="25.0" prefWidth="87.0" />
+      <TableView fx:id="tabla" layoutX="34.0" layoutY="124.0" prefHeight="294.0" prefWidth="810.0">
+        <columns>
+            <TableColumn prefWidth="99.0" text="Fecha" />
+          <TableColumn  prefWidth="187.0" text="Entrada">
+               <columns>
+                  <TableColumn prefWidth="77.0" text="Cantidad" />
+                  <TableColumn prefWidth="73.0" text="C/Unitario" />
+                  <TableColumn prefWidth="75.0" text="Monto" />
+               </columns>
+            </TableColumn>
+          <TableColumn prefWidth="198.0" text="Salida">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="Cantidad" />
+                  <TableColumn prefWidth="75.0" text="C/Unitario" />
+                  <TableColumn prefWidth="75.0" text="Monto" />
+               </columns>
+            </TableColumn>
+            <TableColumn prefWidth="260.0" text="Existencia">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="Cantidad" />
+                  <TableColumn prefWidth="75.0" text="C/Unitario" />
+                  <TableColumn prefWidth="75.0" text="Monto" />
+               </columns>
+            </TableColumn>
+        </columns>
+      </TableView>
+      <Label layoutX="403.0" layoutY="14.0" text="Kardex">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="616.0" layoutY="434.0" text="Metodo utilizado: Costo Promedio" />
+   </children>
+</AnchorPane>

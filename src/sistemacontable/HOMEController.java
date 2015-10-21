@@ -26,7 +26,7 @@ public class HOMEController extends StackPane implements Initializable {
      * @param url
      * @param rb
      */
-   @FXML
+    @FXML
     AnchorPane kardex;
     @FXML
     AnchorPane cuentas;

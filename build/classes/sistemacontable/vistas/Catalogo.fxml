@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane" prefHeight="612.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemacontable.CatalogoController">
+   <children>
+      <Label alignment="CENTER" layoutX="133.0" layoutY="53.0" prefWidth="333.9999000000025" text="CATÁLOGO DE CUENTAS" textAlignment="CENTER">
+         <font>
+            <Font name="Arial Bold" size="25.0" />
+         </font>
+      </Label>
+      <Pane layoutX="47.0" layoutY="102.0" prefHeight="486.0" prefWidth="474.0">
+         <children>
+            <Label id="LCodigo" layoutX="20.0" layoutY="20.0" text="Código:" />
+            <Label id="LNombre" layoutX="179.0" layoutY="20.0" text="Nombre:" />
+            <TextField id="txtCodigo" layoutX="78.0" layoutY="20.0" prefHeight="21.0" prefWidth="80.0" />
+            <TextField id="txtNombre" layoutX="246.0" layoutY="20.0" prefHeight="21.0" prefWidth="80.0" />
+            <Button id="btnBuscar" layoutX="371.0" layoutY="20.0" mnemonicParsing="false" text="Buscar" textAlignment="CENTER" textOverrun="CLIP" />
+            <TableView layoutX="25.0" layoutY="72.0">
+               <columns>
+                  <TableColumn prefWidth="60.0" text="Codigo" />
+                  <TableColumn prefWidth="70.0" text="Nombre" />
+                  <TableColumn prefWidth="75.0" text="Categoria" />
+                  <TableColumn prefWidth="112.0" text="Saldo Deudor" />
+                  <TableColumn prefWidth="130.0" text="Saldo Acreedor" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

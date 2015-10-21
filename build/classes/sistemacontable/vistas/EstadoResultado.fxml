@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="673.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemacontable.EstadoDeResultadoController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutY="-46.0" prefHeight="680.0" prefWidth="580.0" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-46.0">
+         <children>
+            <Label layoutX="170.0" layoutY="82.0" styleClass="tituloVista" text="ESTADO DE RESULTADOS">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+               <textFill>
+                  <Color blue="0.384" green="0.600" red="0.000" fx:id="x2" />
+               </textFill>
+            </Label>
+            <Pane layoutX="30.0" layoutY="130.0" prefHeight="270.0" prefWidth="540.0" styleClass="pane, paneBorde">
+               <children>
+                  <Label layoutX="12.0" layoutY="15.0" text="PERÍODO" textFill="$x2">
+                     <font>
+                        <Font name="Arial Bold" size="13.0" fx:id="x1" />
+                     </font>
+                  </Label>
+                  <Label layoutX="76.0" layoutY="40.0" styleClass="letraNormal" text="Inicio:" />
+                  <Label layoutX="200.0" layoutY="40.0" styleClass="letraNormal" text="mes:" />
+                  <ComboBox layoutX="125.0" layoutY="38.0" prefWidth="40.0" styleClass="comboBox, buttonColor">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="Item 1" />
+                           <String fx:value="Item 2" />
+                           <String fx:value="Item 3" />
+                        </FXCollections>
+                     </items>
+                  </ComboBox>
+                  <ComboBox layoutX="240.0" layoutY="39.0" maxWidth="0.0" minWidth="75.0" prefWidth="45.0" styleClass="comboBox, buttonColor">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="Item 1" />
+                           <String fx:value="Item 2" />
+                           <String fx:value="Item 3" />
+                        </FXCollections>
+                     </items>
+                  </ComboBox>
+                  <Label layoutX="340.0" layoutY="41.0" styleClass="letraNormal" text="Fin:" />
+                  <ComboBox layoutX="369.0" layoutY="40.0" prefWidth="40.0" styleClass="comboBox, buttonColor">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="Item 1" />
+                           <String fx:value="Item 2" />
+                           <String fx:value="Item 3" />
+                        </FXCollections>
+                     </items>
+                  </ComboBox>
+                  <ComboBox layoutX="480.0" layoutY="40.0" prefWidth="40.0" styleClass="comboBox, buttonColor">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="Item 1" />
+                           <String fx:value="Item 2" />
+                           <String fx:value="Item 3" />
+                        </FXCollections>
+                     </items>
+                  </ComboBox>
+                  <Label layoutX="440.0" layoutY="40.0" styleClass="letraNormal" text="Año:" />
+                  <Label font="$x1" layoutX="12.0" layoutY="70.0" text="INGRESOS" textFill="$x2" />
+                  <Label layoutX="76.0" layoutY="90.0" styleClass="letraNormal" text="Nombre de la cuenta:" />
+                  <TextField layoutX="233.0" layoutY="88.0" prefWidth="130.0" />
+                  <Label layoutX="76.0" layoutY="112.0" styleClass="letraNormal" text="Saldo:" />
+                  <TextField layoutX="233.0" layoutY="112.0" prefWidth="130.0" />
+                  <Label layoutX="76.0" layoutY="160.0" styleClass="letraNormal" text="Nombre de la cuenta:" />
+                  <TextField layoutX="233.0" layoutY="160.0" prefWidth="130.0" />
+                  <Label layoutX="76.0" layoutY="181.0" prefWidth="67.0" styleClass="letraNormal" text="Saldo:" />
+                  <TextField layoutX="233.0" layoutY="184.0" prefWidth="130.0" />
+                  <Button layoutX="145.0" layoutY="227.0" mnemonicParsing="false" styleClass="buttonColor" text="GENERAR ESTADO DE RESULTADOS" />
+                  <Button layoutX="387.0" layoutY="100.0" mnemonicParsing="false" styleClass="buttonColor" text="Agregar" />
+                  <Button layoutX="387.0" layoutY="168.0" mnemonicParsing="false" styleClass="buttonColor" text="Agregar" />
+               </children>
+            </Pane>
+            <Label font="$x1" layoutX="44.0" layoutY="260.0" minWidth="20.0" prefWidth="60.0" text="GASTOS" textFill="$x2" />
+            <Pane layoutX="30.0" layoutY="410.0" prefHeight="270.0" prefWidth="540.0" styleClass="pane, paneBorde">
+               <children>
+                  <Label font="$x1" layoutX="200.0" layoutY="14.0" text="ESTADO DE RESULTADOS" textAlignment="CENTER" />
+                  <TableView layoutX="20.0" layoutY="47.0" prefHeight="200.0" prefWidth="500.0" styleClass="paneBorde, comboBox">
+                     <columns>
+                        <TableColumn minWidth="136.0" prefWidth="75.0" text="Ingresos" />
+                        <TableColumn minWidth="120.0" prefWidth="75.0" text="Saldo" />
+                        <TableColumn maxWidth="0.0" minWidth="120.0" prefWidth="400.0" text="Gastos" />
+                        <TableColumn minWidth="120.0" prefWidth="75.0" text="Saldo" />
+                     </columns>
+                  </TableView>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Label font="$x1" layoutX="344.0" layoutY="632.0" minWidth="20.0" prefHeight="16.0" prefWidth="81.0" text="UTILIDAD:" textFill="$x2" />
+      <TextField layoutX="416.0" layoutY="627.0" prefHeight="25.0" prefWidth="109.0" />
+   </children>
+</AnchorPane>
