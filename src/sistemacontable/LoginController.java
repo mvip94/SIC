@@ -3,6 +3,7 @@ package sistemacontable;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +26,10 @@ import javafx.stage.Stage;
  * @author mario
  */
 public class LoginController implements Initializable{//, ControlledScreen {
-
+//atributo de conexion a la base de datos
+    private Connection connection;
+//finalizacion de atributo para conexion de la base de datos
+    
     @FXML
     BorderPane home;
     @FXML
