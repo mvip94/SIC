@@ -44,7 +44,7 @@ public class LoginController implements Initializable {//, ControlledScreen {
     @FXML
     PasswordField txtPass;
 
-    private void conectar() {
+    private void conetar() {
         try {
             connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Contabilidad", "sistemascontables", "SistemasContables");
 
@@ -56,9 +56,24 @@ public class LoginController implements Initializable {//, ControlledScreen {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        btnLoginAction();
-    }    
-    
+
+    } 
+
+    private void validacionCredenciales() {
+
+        try {
+            String usuario = txtUser.getText().toString();
+            String pass = txtPass.getText().toString();
+            String sentenciasql = "SELECT * FROM Login where user='" + usuario + "'and pass='" + pass + "'";
+            Statement statement = this.connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sentenciasql);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al recuperar los productos de la base de datos");
+            ex.printStackTrace();
+        }
+    }
+
     @FXML
     public void btnLoginAction() {
         btnLogin.setOnAction(new EventHandler<ActionEvent>() {
