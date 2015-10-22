@@ -70,7 +70,7 @@ public class LoginController implements Initializable {//, ControlledScreen {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al recuperar los productos de la base de datos");
-            ex.printStackTrace();
+            
         }
     }
 
