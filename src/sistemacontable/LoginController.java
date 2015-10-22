@@ -37,7 +37,7 @@ public class LoginController implements Initializable{//, ControlledScreen {
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        btnLoginAction();
     }    
     
     @FXML
@@ -46,16 +46,18 @@ public class LoginController implements Initializable{//, ControlledScreen {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                     Stage stage = new Stage();
-                     stage.setTitle("Sistema Contable");
+                    Stage stage = new Stage();
+                    stage.setTitle("Sistema Contable");
                     home = FXMLLoader.load(getClass().getResource("vistas/HOME.fxml"));
                     Scene scene = new Scene (home);
                     stage.setScene(scene);
                     stage.show();
-                    ((Node)(event.getSource())).getScene().getWindow().hide();
-                } catch (IOException ex) {
+                    
+                } 
+                catch (IOException ex) {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                ((Node)(event.getSource())).getScene().getWindow().hide();
             }
         });
         

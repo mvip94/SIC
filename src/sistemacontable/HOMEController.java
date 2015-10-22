@@ -6,11 +6,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
@@ -20,12 +22,7 @@ import javafx.stage.Stage;
 
 
 public class HOMEController extends StackPane implements Initializable {
-
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
+    
     @FXML
     AnchorPane kardex;
     @FXML
@@ -42,16 +39,37 @@ public class HOMEController extends StackPane implements Initializable {
     AnchorPane inventario;
     @FXML
     TreeView tree;
-  /*  @FXML
-    MenuItem menuLogin;   */ 
+    @FXML
+    AnchorPane newPane;
+    @FXML
+    AnchorPane eInventario;
+    @FXML
+    AnchorPane CentralAP;
+    @FXML
+    AnchorPane ReqDevMateriales;
+    @FXML
+    MenuItem menuInventario;
+    @FXML
+    MenuItem menuReqMateriales;
 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         crearArbol();
         treeClick();
+        menuInventarioEntrada();
+        menuReqMateriales();
     }    
-  
+    
+    public void menuInventarioEntrada(){
+        menuInventario.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                lanzarEscenario("Entrada de Inventario", eInventario, "vistas/EntradaInventario.fxml");             
+            }
+        });
+    }
+    
     public void btnMenuLogin(){
       /*  menuLogin.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -69,7 +87,15 @@ public class HOMEController extends StackPane implements Initializable {
             }
         });*/
     }
-   
+   public void menuReqMateriales(){
+    menuReqMateriales.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                lanzarEscenario("Requerimiento/Devolución de Inventario", ReqDevMateriales, "vistas/ReqDevMateriales.fxml");
+            }
+        });
+   }
+    
     private TreeItem<String> makeBranch(String title, TreeItem<String> parent) {
      TreeItem<String> item = new TreeItem<>(title); 
      item.setExpanded(false);
@@ -77,7 +103,7 @@ public class HOMEController extends StackPane implements Initializable {
      return item;
     }
      
-    private void lanzarEscena(String title, AnchorPane pane, String fxml){
+    private void lanzarEscenario(String title, AnchorPane pane, String fxml){
     try {
                      Stage stage = new Stage();
                      stage.setTitle(title);
@@ -91,6 +117,17 @@ public class HOMEController extends StackPane implements Initializable {
                     }
     }
     
+    private void lanzarEscena(String str){
+    try {
+                     CentralAP.getChildren().clear();
+                     newPane = FXMLLoader.load(getClass().getResource(str));     
+                     CentralAP.getChildren().add(newPane);     
+                      } 
+                    catch (IOException ex) {
+                          Logger.getLogger(HOMEController.class.getName()).log(Level.SEVERE, null, ex);
+                      }
+    }
+    
     private void treeClick(){
         tree.setOnMouseClicked(new EventHandler<MouseEvent>()
         {
@@ -100,30 +137,34 @@ public class HOMEController extends StackPane implements Initializable {
                 if(mouseEvent.getClickCount() == 2)
                 {
                   TreeItem<String> item = (TreeItem<String>)tree.getSelectionModel().getSelectedItem();
-                    //  System.out.println("Selected Text : " + item.getValue());
                   String str = item.getValue();
-                    // System.out.println("Selected Textasasdf : " + str);
 
                     if(str.contains("Consultar Catalogo de cuentas")){
-                        lanzarEscena("Catalogo de cuentas", cuentas, "vistas/Catalogo.fxml");
+                        lanzarEscenario("Catalogo de cuentas", cuentas, "vistas/Catalogo.fxml");
                     }
-                    else if(str.contains("Consultar Inventario")){
-                          lanzarEscena("Inventario", inventario, "vistas/inventario.fxml");
+                    else if(str.contains("Inventario Materia Prima")){
+                          lanzarEscenario("Inventario Materia Prima", inventario, "vistas/inventario.fxml");
                     }
                     else if(str.contains("Balance General")){
-                           lanzarEscena("Balance General", balgeneral, "vistas/BalanceGeneral.fxml"); 
+                           lanzarEscenario("Balance General", balgeneral, "vistas/BalanceGeneral.fxml"); 
                     }
                     else if(str.contains("Estado de Resultado")){
-                           lanzarEscena("Estado de Resultado",eResultado, "vistas/EstadoResultado.fxml"); 
+                           lanzarEscenario("Estado de Resultado",eResultado, "vistas/EstadoResultado.fxml"); 
                     }
                     else if(str.contains("Estado de Capital")){
-                           lanzarEscena("Estado de Capital",eCapital, "vistas/EstadoCapital.fxml"); 
+                           lanzarEscenario("Estado de Capital",eCapital, "vistas/EstadoCapital.fxml"); 
                     }
                     else if(str.contains("Balance de Comprobacion")){
-                           lanzarEscena("Balance de Comprobacion",ecomprobacion, "vistas/BalanceComprobacion.fxml"); 
+                           lanzarEscenario("Balance de Comprobacion",ecomprobacion, "vistas/BalanceComprobacion.fxml"); 
                     }
                     else if(str.contains("Kardex")){
-                           lanzarEscena("Kardex",kardex,"vistas/Kardex.fxml"); 
+                           lanzarEscenario("Kardex",kardex,"vistas/Kardex.fxml"); 
+                    }
+                     else if(str.contains("  Agregar Cuenta")){
+                         lanzarEscena("vistas/GestionarCuentas.fxml");
+                    }
+                    else if(str.contains("  Eliminar Cuenta")){
+                         lanzarEscena("vistas/EliminarCuenta.fxml");
                     }
                 }
             }
@@ -138,13 +179,13 @@ public class HOMEController extends StackPane implements Initializable {
         raiz.setExpanded(true);
        
         Cuentas = makeBranch("Cuentas", raiz);
-        eCuentas = makeBranch("Editar Sub-cuentas", Cuentas);
-        makeBranch("  Agregar Sub-cuenta", eCuentas);
-        makeBranch("  Eliminar Sub-cuenta", eCuentas);
+        eCuentas = makeBranch("Editar Cuentas", Cuentas);
+        makeBranch("  Agregar Cuenta", eCuentas);
+        makeBranch("  Eliminar Cuenta", eCuentas);
         makeBranch("Consultar Catalogo de cuentas", Cuentas);
                
         Inventario = makeBranch("Inventario", raiz);
-        makeBranch("Consultar Inventario", Inventario);
+        makeBranch("Inventario Materia Prima", Inventario);
         makeBranch("Compras", Inventario);
         makeBranch("Kardex", Inventario);
         
@@ -158,5 +199,5 @@ public class HOMEController extends StackPane implements Initializable {
         tree.setRoot(raiz); //tree es el TreeView del fxml
         tree.setShowRoot(false); //raiz no se ve porque solo es el contenedor
     }
-}
+ }
 

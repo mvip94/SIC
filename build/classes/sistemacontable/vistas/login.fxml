@@ -16,8 +16,8 @@
          </font>
       </Label>
       <Button id="btnLogin" fx:id="btnLogin" layoutX="105.0" layoutY="218.0" mnemonicParsing="false" onAction="#btnLoginAction" text="Iniciar Sesión" />
-      <PasswordField id="txtPass" layoutX="72.0" layoutY="167.0" promptText="Contraseña" />
-      <TextField id="txtUser" layoutX="72.0" layoutY="108.0" promptText="mvip" />
+      <PasswordField id="txtPass" fx:id="txtPass" layoutX="72.0" layoutY="167.0" promptText="Contraseña" />
+      <TextField id="txtUser" fx:id="txtUser" layoutX="72.0" layoutY="108.0" promptText="mvip" />
       <Label layoutX="66.0" layoutY="81.0" text="Usuario:" />
       <Label layoutX="66.0" layoutY="140.0" text="Contraseña:" />
    </children>

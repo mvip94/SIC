@@ -21,8 +21,7 @@ public class Home extends Application{
        // FXMLLoader loader = new FXMLLoader(getClass().getResource("HOME.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("vistas/login.fxml"));
         Scene escena = new Scene(root);
-        primaryStage.setTitle("Sistema Contable - Iniciar Sesión");  
-        
+        primaryStage.setTitle("Sistema Contable - Iniciar Sesión");   
         primaryStage.setScene(escena);
         primaryStage.show();        
       }

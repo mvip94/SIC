@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="621.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sistemacontable.EntradaInventarioController">
+   <children>
+      <Label layoutX="229.0" layoutY="32.0" text="Entrada de Inventario" />
+      <Label layoutX="185.0" layoutY="70.0" text="Fecha:" />
+      <DatePicker layoutX="239.0" layoutY="65.0" />
+      <TableView layoutX="23.0" layoutY="121.0" prefHeight="200.0" prefWidth="575.0">
+        <columns>
+          <TableColumn prefWidth="66.0" text="Codigo" />
+          <TableColumn prefWidth="159.0" text="Producto" />
+            <TableColumn prefWidth="134.0" text="Proveedor" />
+            <TableColumn prefWidth="74.0" text="Cantidad" />
+            <TableColumn prefWidth="69.0" text="C. Unit." />
+            <TableColumn prefWidth="72.0" text="Total" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="683.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemacontable.ReqDevMaterialesController">
+   <children>
+      <Label layoutX="217.0" layoutY="31.0" text="L.A. INDUSTRIAS">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="121.0" text="Fecha:" />
+      <DatePicker layoutX="122.0" layoutY="116.0" />
+      <Label layoutX="64.0" layoutY="172.0" text="Orden de Producción No.:" />
+      <Label layoutX="444.0" layoutY="121.0" text="No. 00000" />
+      <TextField layoutX="256.0" layoutY="167.0" prefHeight="25.0" prefWidth="198.0" />
+      <TableView layoutX="36.0" layoutY="209.0" prefHeight="375.0" prefWidth="542.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Cantidad" />
+          <TableColumn prefWidth="238.0" text="Descripción" />
+            <TableColumn prefWidth="109.0" text="Valor Unitario" />
+            <TableColumn prefWidth="101.0" text="Valor Total" />
+        </columns>
+      </TableView>
+      <TextField layoutX="36.0" layoutY="604.0" />
+      <Label layoutX="86.0" layoutY="629.0" text="Autorizado" />
+      <Label layoutX="433.0" layoutY="629.0" text="Recibido" />
+      <TextField layoutX="376.0" layoutY="604.0" />
+      <RadioButton layoutX="62.0" layoutY="81.0" mnemonicParsing="false" text="Requisición de Materiales">
+         <toggleGroup>
+            <ToggleGroup fx:id="group" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="338.0" layoutY="81.0" mnemonicParsing="false" text="Devolución de Materiales" toggleGroup="$group" />
+   </children>
+</AnchorPane>
