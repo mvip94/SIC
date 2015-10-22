@@ -71,7 +71,6 @@ public class LoginController implements Initializable {//, ControlledScreen {
                     Scene scene = new Scene(home);
                     stage.setScene(scene);
                     stage.show();
-                   ((Node) (event.getSource())).getScene().getWindow().hide();
 
                 } catch (IOException ex) {
                      Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
