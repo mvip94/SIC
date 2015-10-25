@@ -7,18 +7,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="310.0" prefWidth="315.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sistemacontable.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="310.0" prefWidth="315.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemacontable.LoginController">
    <children>
       <Label id="lblMensaje" alignment="CENTER" layoutX="66.0" layoutY="262.0" prefHeight="15.0" prefWidth="171.0" textFill="RED" />
-      <Label alignment="CENTER" layoutX="52.0" layoutY="25.0" prefHeight="15.0" prefWidth="198.0" text="Iniciar Sesion">
+      <Label alignment="CENTER" layoutX="59.0" layoutY="24.0" prefHeight="15.0" prefWidth="198.0" text="Iniciar Sesion">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Button id="btnLogin" fx:id="btnLogin" layoutX="98.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnLoginAction" text="Iniciar Sesión" />
-      <PasswordField id="txtPass" layoutX="65.0" layoutY="161.0" promptText="Contraseña" />
-      <TextField id="txtUser" layoutX="66.0" layoutY="103.0" promptText="mvip" />
+      <Button id="btnLogin" fx:id="btnLogin" layoutX="105.0" layoutY="218.0" mnemonicParsing="false" onAction="#btnLoginAction" text="Iniciar Sesión" />
+      <PasswordField id="txtPass" fx:id="txtPass" layoutX="72.0" layoutY="167.0" promptText="Contraseña" />
+      <TextField id="txtUser" fx:id="txtUser" layoutX="72.0" layoutY="108.0" promptText="mvip" />
       <Label layoutX="66.0" layoutY="81.0" text="Usuario:" />
       <Label layoutX="66.0" layoutY="140.0" text="Contraseña:" />
    </children>

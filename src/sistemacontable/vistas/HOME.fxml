@@ -15,11 +15,6 @@
          <children>
             <MenuBar>
               <menus>
-                <Menu mnemonicParsing="false" text="Archivo">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Cerrar" />
-                  </items>
-                </Menu>
                 <Menu mnemonicParsing="false" text="Contabilidad">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Periodo contable" />
@@ -27,9 +22,16 @@
                         <MenuItem mnemonicParsing="false" text="Libro diario" />
                   </items>
                 </Menu>
+                <Menu mnemonicParsing="false" text="Costos">
+                  <items>
+                    <MenuItem fx:id="menuInventario" mnemonicParsing="false" onAction="#menuInventarioEntrada" text="Entrada de inventario" />
+                        <MenuItem fx:id="menuReqMateriales" mnemonicParsing="false" onAction="#menuReqMateriales" text="Requisición/Devolución de Materiales" />
+                        <MenuItem fx:id="menuInventario11" mnemonicParsing="false" onAction="#menuInventarioEntrada" text="Tiempo de Mano de Obra" />
+                  </items>
+                </Menu>
                 <Menu mnemonicParsing="false" onAction="#btnMenuLogin" text="Usuarios">
                   <items>
-                    <MenuItem fx:id="menuLogin" mnemonicParsing="false" onAction="#btnMenuLogin" text="Iniciar Sesión" />
+                    <MenuItem mnemonicParsing="false" text="Información Usuario" />
                         <MenuItem mnemonicParsing="false" text="Cerrar Sesión" />
                         <MenuItem mnemonicParsing="false" text="Administrar Usuarios" />
                   </items>
@@ -58,6 +60,6 @@
       <TreeView fx:id="tree" prefHeight="487.0" prefWidth="248.0" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <AnchorPane fx:id="anchorPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <AnchorPane fx:id="CentralAP" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

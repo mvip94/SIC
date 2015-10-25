@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="608.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemacontable.KardexController">
+   <children>
+      <Label layoutX="34.0" layoutY="80.0" text="Nombre del producto:" />
+      <TextField layoutX="187.0" layoutY="75.0" prefHeight="25.0" prefWidth="236.0" />
+      <Label layoutX="603.0" layoutY="114.0" text="Unidad de Medida:" />
+      <TextField layoutX="734.0" layoutY="75.0" prefHeight="25.0" prefWidth="101.0" />
+      <TableView fx:id="tabla" layoutX="33.0" layoutY="161.0">
+        <columns>
+            <TableColumn prefWidth="84.0" text="Fecha" />
+          <TableColumn prefWidth="196.0" text="Concepto" />
+            <TableColumn prefWidth="74.0" text="No. Documento" />
+          <TableColumn prefWidth="344.0" text="Unidades">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="Entradas" />
+                  <TableColumn prefWidth="75.0" text="Salidas" />
+                  <TableColumn prefWidth="75.0" text="Saldos" />
+               </columns>
+            </TableColumn>
+            <TableColumn prefWidth="237.0" text="Valores">
+               <columns>
+                  <TableColumn prefWidth="104.0" text="Entradas" />
+                  <TableColumn prefWidth="75.0" text="Salidas" />
+                  <TableColumn prefWidth="81.0" text="Saldos" />
+               </columns>
+            </TableColumn>
+        </columns>
+      </TableView>
+      <Label layoutX="356.0" layoutY="20.0" text="L.A. INDUSTRIAS">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="617.0" layoutY="571.0" text="Metodo utilizado: Costo Promedio" />
+      <Label layoutX="366.0" layoutY="52.0" text="Tarjeta de Inventarios" />
+      <Label layoutX="34.0" layoutY="114.0" text="Código del producto:" />
+      <TextField layoutX="187.0" layoutY="109.0" prefHeight="25.0" prefWidth="236.0" />
+      <Label layoutX="646.0" layoutY="90.0" text="Tarjeta No.:" />
+      <TextField layoutX="734.0" layoutY="109.0" prefHeight="25.0" prefWidth="101.0" />
+   </children>
+</AnchorPane>

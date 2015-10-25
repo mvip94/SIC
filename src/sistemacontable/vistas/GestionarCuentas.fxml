@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="246.0" prefWidth="596.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sistemacontable.GestionarCuentasController">
+   <children>
+      <Label layoutX="128.0" layoutY="56.0" text="Nombre:" />
+      <TextField layoutX="204.0" layoutY="51.0" />
+      <Label layoutX="160.0" layoutY="93.0" text="Id:" />
+      <TextField layoutX="204.0" layoutY="88.0" />
+      <ComboBox layoutX="204.0" layoutY="123.0" prefWidth="150.0" />
+      <Label layoutX="143.0" layoutY="128.0" text="Tipo:" />
+      <Label layoutX="238.0" layoutY="20.0" text="Agregar Cuenta" />
+      <Label layoutX="211.0" layoutY="217.0" text="Agregado exitosamente" textFill="#2519ab" />
+      <Button layoutX="248.0" layoutY="174.0" mnemonicParsing="false" text="Agregar" />
+   </children>
+</AnchorPane>

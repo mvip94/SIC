@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemacontable.EliminarCuentaController">
+   <children>
+      <AnchorPane layoutX="26.0" layoutY="108.0" />
+      <Label layoutX="182.0" layoutY="31.0" text="Escoja una cuenta" />
+      <Button layoutX="206.0" layoutY="413.0" mnemonicParsing="false" text="Eliminar" />
+      <TableView layoutX="77.0" layoutY="60.0" prefHeight="333.0" prefWidth="343.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Codigo" />
+          <TableColumn prefWidth="266.0" text="Nombre" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
