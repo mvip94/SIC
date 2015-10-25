@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <Label layoutX="214.0" layoutY="35.0" prefWidth="202.0" text="Eliminar Transacción">
+      <font>
+        <Font size="19.0" />
+      </font>
+    </Label>
+    <Label layoutX="130.0" layoutY="88.0" text="Código:" />
+    <TextField layoutX="187.0" layoutY="85.0" prefWidth="114.0" />
+    <Button layoutX="376.0" layoutY="83.0" mnemonicParsing="false" text="Buscar" />
+    <TableView layoutX="99.0" layoutY="141.0" prefHeight="226.0" prefWidth="402.0">
+      <columns>
+        <TableColumn prefWidth="75.0" text="Código" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="325.0" text="Descripción" />
+      </columns>
+    </TableView>
+    <Button layoutX="225.0" layoutY="383.0" mnemonicParsing="false" text="Eliminar" />
+    <Button layoutX="336.0" layoutY="383.0" mnemonicParsing="false" text="Cancelar" />
+  </children>
+</AnchorPane>

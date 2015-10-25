@@ -37,9 +37,12 @@ public class HOMEController extends StackPane implements Initializable {
     AnchorPane eCapital;
     @FXML
     AnchorPane inventario;
-     //new
     @FXML
     AnchorPane hoja;
+    @FXML
+    AnchorPane nTransaccion;
+    @FXML
+    AnchorPane eTransaccion;
     @FXML
     TreeView tree;
     @FXML
@@ -54,7 +57,7 @@ public class HOMEController extends StackPane implements Initializable {
     MenuItem menuInventario;
     @FXML
     MenuItem menuReqMateriales;
-
+    
     
     
 
@@ -172,9 +175,14 @@ public class HOMEController extends StackPane implements Initializable {
                     else if(str.contains("  Eliminar Cuenta")){
                          lanzarEscena("vistas/EliminarCuenta.fxml");
                     }
-                     //new
                     else if(str.contains("Hoja de trabajo")){
                            lanzarEscenario("Hoja de trabajo",hoja,"vistas/HojaDeTrabajo.fxml"); 
+                    }
+                    else if(str.contains("Nueva Transacción")){
+                           lanzarEscenario("Nueva Transacción",nTransaccion,"vistas/NuevaTransaccion.fxml"); 
+                    }
+                    else if(str.contains("Eliminar Transacción")){
+                           lanzarEscenario("Eliminar Transacción",eTransaccion,"vistas/EliminarTransaccion.fxml"); 
                     }
                 }
             }
@@ -183,7 +191,7 @@ public class HOMEController extends StackPane implements Initializable {
     
     private void crearArbol(){
     //Arbol
-        TreeItem<String> raiz,Balances,Cuentas,Inventario,eCuentas;
+        TreeItem<String> raiz,Balances,Cuentas,Inventario,eCuentas,Transaccion;
         
         raiz = new TreeItem<>(); //Nueva raiz, contendrá las ramas balance, catalogos, etc
         raiz.setExpanded(true);
@@ -199,6 +207,10 @@ public class HOMEController extends StackPane implements Initializable {
         makeBranch("Compras", Inventario);
         makeBranch("Kardex", Inventario);
         
+        Transaccion = makeBranch("Transacciones", raiz);
+        makeBranch("Nueva Transacción", Transaccion);
+        makeBranch("Eliminar Transacción", Transaccion);
+      
         Balances = makeBranch("Reportes", raiz);
         makeBranch("Balance de Comprobacion", Balances);
         makeBranch("Estado de Resultado", Balances);        
