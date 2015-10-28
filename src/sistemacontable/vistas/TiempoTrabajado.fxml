@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemacontable.TiempoTrabajadoController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="616.0" prefWidth="638.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sistemacontable.TiempoTrabajadoController">
+   <children>
+      <Label layoutX="217.0" layoutY="28.0" text="L.A. INDUSTRIAS">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="176.0" layoutY="61.0" text="Hoja Individual de Tiempo Utilizado">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="102.0" text="Nombre:" />
+      <Label layoutX="39.0" layoutY="137.0" text="Orden de Producción No.:" />
+      <Label layoutX="37.0" layoutY="171.0" text="Costo por Hora Normal:  $" />
+      <Label layoutX="322.0" layoutY="171.0" text="Costo por Hora con Recargo:  $" />
+      <TextField layoutX="122.0" layoutY="97.0" prefHeight="25.0" prefWidth="219.0" />
+      <TextField layoutX="217.0" layoutY="132.0" prefHeight="25.0" prefWidth="71.0" />
+      <TextField layoutX="217.0" layoutY="166.0" prefHeight="25.0" prefWidth="71.0" />
+      <TextField layoutX="538.0" layoutY="166.0" prefHeight="25.0" prefWidth="71.0" />
+      <TableView layoutX="37.0" layoutY="235.0" prefHeight="200.0" prefWidth="567.0">
+        <columns>
+          <TableColumn prefWidth="69.0" text="Fecha" />
+          <TableColumn prefWidth="81.0" text="C2" />
+            <TableColumn prefWidth="81.0" text="C2" />
+            <TableColumn prefWidth="81.0" text="C2" />
+            <TableColumn prefWidth="177.0" text="Detalle del Trabajo" />
+            <TableColumn prefWidth="77.0" text="Valor" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>
