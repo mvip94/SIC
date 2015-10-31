@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene; 
 import javafx.stage.Stage;
+import jdbc_sqlite.BaseDatos;
 
 /**
  *
@@ -17,6 +18,9 @@ public class Home extends Application{
  
     @Override
     public void start(Stage primaryStage) throws Exception {
+        
+        BaseDatos bd=new BaseDatos();
+        bd.conectar();
        
        // FXMLLoader loader = new FXMLLoader(getClass().getResource("HOME.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("vistas/login.fxml"));
