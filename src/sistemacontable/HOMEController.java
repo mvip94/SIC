@@ -51,6 +51,12 @@ public class HOMEController extends StackPane implements Initializable {
     MenuItem menuInventario;
     @FXML
     MenuItem menuReqMateriales;
+    @FXML
+    AnchorPane hoja;
+    @FXML
+    AnchorPane nTransaccion;
+    @FXML
+    AnchorPane eTransaccion;
 
     
     @Override
@@ -87,6 +93,7 @@ public class HOMEController extends StackPane implements Initializable {
             }
         });*/
     }
+  
    public void menuReqMateriales(){
     menuReqMateriales.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -142,9 +149,10 @@ public class HOMEController extends StackPane implements Initializable {
                     if(str.contains("Consultar Catalogo de cuentas")){
                         lanzarEscenario("Catalogo de cuentas", cuentas, "vistas/Catalogo.fxml");
                     }
+                    /*
                     else if(str.contains("Inventario Materia Prima")){
                           lanzarEscenario("Inventario Materia Prima", inventario, "vistas/inventario.fxml");
-                    }
+                    }*/
                     else if(str.contains("Balance General")){
                            lanzarEscenario("Balance General", balgeneral, "vistas/BalanceGeneral.fxml"); 
                     }
@@ -156,15 +164,24 @@ public class HOMEController extends StackPane implements Initializable {
                     }
                     else if(str.contains("Balance de Comprobacion")){
                            lanzarEscenario("Balance de Comprobacion",ecomprobacion, "vistas/BalanceComprobacion.fxml"); 
-                    }
+                    }/*
                     else if(str.contains("Kardex")){
                            lanzarEscenario("Kardex",kardex,"vistas/Kardex.fxml"); 
-                    }
+                    }*/
                      else if(str.contains("  Agregar Cuenta")){
                          lanzarEscena("vistas/GestionarCuentas.fxml");
                     }
                     else if(str.contains("  Eliminar Cuenta")){
                          lanzarEscena("vistas/EliminarCuenta.fxml");
+                    }
+                    else if(str.contains("Hoja de trabajo")){
+                           lanzarEscenario("Hoja de trabajo",hoja,"vistas/HojaDeTrabajo.fxml"); 
+                    }
+                    else if(str.contains("Nueva Transacción")){
+                           lanzarEscenario("Nueva Transacción",nTransaccion,"vistas/NuevaTransaccion.fxml"); 
+                    }
+                    else if(str.contains("Eliminar Transacción")){
+                           lanzarEscenario("Eliminar Transacción",eTransaccion,"vistas/EliminarTransaccion.fxml"); 
                     }
                 }
             }
@@ -173,7 +190,7 @@ public class HOMEController extends StackPane implements Initializable {
     
     private void crearArbol(){
     //Arbol
-        TreeItem<String> raiz,Balances,Cuentas,Inventario,eCuentas;
+        TreeItem<String> raiz,Balances,Cuentas,Inventario,eCuentas, Transaccion;
         
         raiz = new TreeItem<>(); //Nueva raiz, contendrá las ramas balance, catalogos, etc
         raiz.setExpanded(true);
@@ -183,11 +200,15 @@ public class HOMEController extends StackPane implements Initializable {
         makeBranch("  Agregar Cuenta", eCuentas);
         makeBranch("  Eliminar Cuenta", eCuentas);
         makeBranch("Consultar Catalogo de cuentas", Cuentas);
-               
+        /*       
         Inventario = makeBranch("Inventario", raiz);
         makeBranch("Inventario Materia Prima", Inventario);
         makeBranch("Compras", Inventario);
         makeBranch("Kardex", Inventario);
+        */
+        Transaccion = makeBranch("Transacciones", raiz);
+        makeBranch("Nueva Transacción", Transaccion);
+        makeBranch("Eliminar Transacción", Transaccion);
         
         Balances = makeBranch("Reportes", raiz);
         makeBranch("Balance de Comprobacion", Balances);

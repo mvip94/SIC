@@ -22,11 +22,23 @@
                         <MenuItem mnemonicParsing="false" text="Libro diario" />
                   </items>
                 </Menu>
+                  <Menu mnemonicParsing="false" text="Inventario">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Inventario Materia Prima" />
+                        <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                     </items>
+                  </Menu>
                 <Menu mnemonicParsing="false" text="Costos">
                   <items>
-                    <MenuItem fx:id="menuInventario" mnemonicParsing="false" onAction="#menuInventarioEntrada" text="Entrada de inventario" />
-                        <MenuItem fx:id="menuReqMateriales" mnemonicParsing="false" onAction="#menuReqMateriales" text="Requisición/Devolución de Materiales" />
-                        <MenuItem fx:id="menuInventario11" mnemonicParsing="false" onAction="#menuInventarioEntrada" text="Tiempo de Mano de Obra" />
+                        <Menu mnemonicParsing="false" text="Materia Prima">
+                           <items>
+                              <MenuItem fx:id="menuInventario" mnemonicParsing="false" onAction="#menuInventarioEntrada" text="Entrada de inventario" />
+                              <MenuItem fx:id="menuReqMateriales" mnemonicParsing="false" onAction="#menuReqMateriales" text="Requisición/Devolución de Materiales" />
+                              <MenuItem mnemonicParsing="false" text="Producción Terminada" />
+                           </items>
+                        </Menu>
+                        <MenuItem fx:id="menuInventario11" mnemonicParsing="false" onAction="#menuInventarioEntrada" text="Mano de Obra" />
+                        <MenuItem mnemonicParsing="false" text="CIF" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" onAction="#btnMenuLogin" text="Usuarios">
