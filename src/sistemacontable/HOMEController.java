@@ -128,7 +128,7 @@ public class HOMEController extends StackPane implements Initializable {
     try {
                      CentralAP.getChildren().clear();
                      newPane = FXMLLoader.load(getClass().getResource(str));     
-                     CentralAP.getChildren().add(newPane);     
+                     CentralAP.getChildren().add(newPane);
                       } 
                     catch (IOException ex) {
                           Logger.getLogger(HOMEController.class.getName()).log(Level.SEVERE, null, ex);

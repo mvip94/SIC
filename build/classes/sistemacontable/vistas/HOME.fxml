@@ -25,7 +25,8 @@
                   <Menu mnemonicParsing="false" text="Inventario">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Inventario Materia Prima" />
-                        <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                        <MenuItem mnemonicParsing="false" text="Inventario Materia en Proceso" />
+                        <MenuItem mnemonicParsing="false" text="Inventario Materia Prima" />
                      </items>
                   </Menu>
                 <Menu mnemonicParsing="false" text="Costos">

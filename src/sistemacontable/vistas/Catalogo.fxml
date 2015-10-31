@@ -23,12 +23,12 @@
             <TextField id="txtCodigo" layoutX="78.0" layoutY="20.0" prefHeight="21.0" prefWidth="80.0" />
             <TextField id="txtNombre" layoutX="246.0" layoutY="20.0" prefHeight="21.0" prefWidth="80.0" />
             <Button id="btnBuscar" layoutX="371.0" layoutY="20.0" mnemonicParsing="false" text="Buscar" textAlignment="CENTER" textOverrun="CLIP" />
-            <TableView layoutY="72.0" prefHeight="400.0" prefWidth="474.0">
+            <TableView layoutY="72.0" prefHeight="400.0" prefWidth="504.0">
                <columns>
-                  <TableColumn prefWidth="51.0" text="Codigo" />
-                  <TableColumn prefWidth="124.0" text="Nombre" />
-                  <TableColumn prefWidth="65.0" text="Categoria" />
-                  <TableColumn prefWidth="114.0" text="Saldo Deudor" />
+                  <TableColumn prefWidth="63.0" text="Codigo" />
+                  <TableColumn prefWidth="133.0" text="Nombre" />
+                  <TableColumn prefWidth="83.0" text="Categoria" />
+                  <TableColumn prefWidth="105.0" text="Saldo Deudor" />
                   <TableColumn prefWidth="119.0" text="Saldo Acreedor" />
                </columns>
             </TableView>

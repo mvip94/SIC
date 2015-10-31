@@ -19,7 +19,7 @@
       <Label layoutX="64.0" layoutY="172.0" text="Orden de Producción No.:" />
       <Label layoutX="444.0" layoutY="121.0" text="No. 00000" />
       <TextField layoutX="256.0" layoutY="167.0" prefHeight="25.0" prefWidth="198.0" />
-      <TableView layoutX="36.0" layoutY="209.0" prefHeight="375.0" prefWidth="542.0">
+      <TableView layoutX="36.0" layoutY="209.0" prefHeight="375.0" prefWidth="542.0" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="39.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Cantidad" />
           <TableColumn prefWidth="238.0" text="Descripción" />
